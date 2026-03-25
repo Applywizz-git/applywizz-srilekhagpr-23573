@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;500;600&display=swap');
+@import 'aos/dist/aos.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury Portfolio Design System - Cinematic & Elegant */
+
+@layer base {
+  :root {
+    /* Light Theme - Ivory & Copper */
+    --background: 60 9% 98%;
+    --foreground: 0 0% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+
+    --primary: 0 0% 11%;
+    --primary-foreground: 60 9% 98%;
+
+    --secondary: 27 46% 55%;
+    --secondary-foreground: 0 0% 11%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 60 9% 98%;
+
+    --muted: 0 0% 64%;
+    --muted-foreground: 0 0% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 30 9% 82%;
+    --input: 30 9% 82%;
+    --ring: 27 46% 55%;
+
+    --radius: 1rem;
+
+    /* Luxury Specific Tokens */
+    --copper: 27 46% 55%;
+    --copper-glow: 27 46% 65%;
+    --charcoal: 0 0% 11%;
+    --silver: 30 9% 82%;
+    --ivory: 60 9% 98%;
+    --glass: 0 0% 100%;
+    --glass-opacity: 0.08;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 11%) 0%, hsl(0 0% 20%) 100%);
+    --gradient-copper: linear-gradient(135deg, hsl(27 46% 55%) 0%, hsl(27 46% 65%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  }
+
+  .dark {
+    /* Dark Theme - Deep Charcoal & Copper Glow */
+    --background: 0 0% 11%;
+    --foreground: 60 9% 98%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 60 9% 98%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 60 9% 98%;
+
+    --primary: 60 9% 98%;
+    --primary-foreground: 0 0% 11%;
+
+    --secondary: 27 46% 55%;
+    --secondary-foreground: 0 0% 11%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 60 9% 98%;
+
+    --muted: 0 0% 40%;
+    --muted-foreground: 0 0% 64%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 27 46% 55%;
+
+    --glass: 255 255 255;
+    --glass-opacity: 0.08;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 15%) 100%);
+    --gradient-copper: linear-gradient(135deg, hsl(27 46% 45%) 0%, hsl(27 46% 55%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply font-extrabold;
+  }
+}
+
+@layer components {
+  /* Glassmorphism */
+  .glass {
+    background: rgba(var(--glass), var(--glass-opacity));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(120, 72, 24, 0.9);
+  }
+
+  .glass-strong {
+    background: rgba(var(--glass), 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* border: 1px solid rgba(255, 255, 255, 0.15); */
+    border: 1px solid rgba(120, 72, 24, 0.9);
+
+  }
+
+  /* Copper Glow Effect */
+  .copper-glow {
+    box-shadow: 0 0 30px hsl(var(--copper) / 0.3);
+  }
+
+  .copper-glow-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .copper-glow-hover:hover {
+    box-shadow: 0 0 40px hsl(var(--copper) / 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(2deg);
+    }
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Shimmer Effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--silver) / 0.5) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Parallax */
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Smooth Transitions */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* 3D Flip Card Utilities */
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Swiper Custom Styles */
+  .swiper-pagination-bullet {
+    background: hsl(var(--secondary));
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: hsl(var(--secondary));
+  }
+}
