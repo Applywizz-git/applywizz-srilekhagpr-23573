@@ -3,7 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-scroll";
 import { Download, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
-import profileImg from "/profileimgepp.jpg";
+import profileImg from "/srelekha.jpeg";
 import FloatingElements from "./FloatingElements";
 
 const Hero = () => {
